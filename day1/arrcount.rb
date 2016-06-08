@@ -1,13 +1,15 @@
 
-array =[1,5,4,6,5,4,4,7,5,5,4,5,2,6]
+user_input = [1,5,4,6,5,4,4,7,5,5,4,5,2,6]
 
-  hash = Hash.new(array)
-  hash.each{|key| hash[key] += 1}
-  #hash
+hash = Hash.new
 
- 
+
 
 hash.each do |key,value|
- print "#{value}:#{key}"
- print "\s"
+  user_input.each do |input_element| 
+    key = user_input
+    value += 1
+  end
 end
+
+puts hash

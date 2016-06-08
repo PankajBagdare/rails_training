@@ -1,0 +1,20 @@
+require 'csv'
+
+file='test.csv'
+
+CSV.foreach (file) do |row| 
+ 
+puts row.inspect
+
+end
+
+
+CSV.foreach (file, "a+" :header=> true) do |i| 
+ 
+ 
+puts row.inspect
+
+end
+
+
+

@@ -4,6 +4,8 @@ $final_price_list=[]
 $total_sales_tax = 0 
 $total_price = 0
 
+# method to calculate price and tax
+
 def calculate_price(line)
    splited_input = line.split
    price = splited_input.last
@@ -25,6 +27,8 @@ def calculate_price(line)
    return @final_price, @sales_tax
 end 
 
+# printing the output line by line
+
 def output(line)
   splited = line.split
   calculate_price(line)
@@ -36,6 +40,8 @@ def output(line)
   $final_price_list.push(@final_price)
 
 end
+
+# to compute total and print
 
 def compute_total_and_print()
   $final_price_list.each do |element|     

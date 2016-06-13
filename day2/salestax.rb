@@ -37,7 +37,9 @@ def output(line)
   for i in 0...len-2
     print "#{splited[i]} "
   end
+  if @final_price!=0
   print ": #{@final_price} \n"
+  end
   $final_price_list.push(@final_price)
 end
 

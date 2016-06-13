@@ -3,7 +3,7 @@ require './calculate'
 
 #puts "Enter the details of purchased item"
 #input_taken = gets.chomp
-tempfile = File.new("input1.txt")
+tempfile = File.new("input2.txt")
 #tempfile.puts(input_taken)
 input = tempfile.read
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby 
 require './calculate.rb'
 
-class Outputprint < Item
+class Printer < Item
   @@tax_list=[]
   @@final_price_list=[]
   def initialize

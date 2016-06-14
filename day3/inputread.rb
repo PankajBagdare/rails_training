@@ -2,8 +2,6 @@
 require './itemclass'
 require './calculate'
 
-$item_list= ["book","music CD","chocolate bar","headache pills","chocolate","perfume"]
-
 class Inputreader
 
   def reader(input)
@@ -14,10 +12,6 @@ class Inputreader
       array_items[i] = line
       i += 1  
     end
-    itemize(array_items)
-  end
-
-  def itemize(array_items)
     k=0
     array_items.each_index do |j|
       splited = array_items[j].split
@@ -45,5 +39,5 @@ class Inputreader
     items=Item.new.return_items
     return items
   end
-  
+
 end

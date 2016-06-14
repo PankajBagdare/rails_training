@@ -12,7 +12,7 @@ tempfile = File.new(input_taken)
 input = tempfile.read
 
 inputreader = Inputreader.new
-outprint = Outputprint.new
+outprint = Printer.new
 itemes = inputreader.reader(input)
 
 updated_items = Calculator.new.calculate(itemes)

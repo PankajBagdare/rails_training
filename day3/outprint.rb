@@ -2,8 +2,10 @@
 require './calculate.rb'
 
 class Printer < Item
+
   @@tax_list=[]
   @@final_price_list=[]
+  
   def initialize
     @count=0
   end
@@ -36,4 +38,5 @@ class Printer < Item
     puts "Sales tax : #{taxsum.round(2)}"
     puts "Total : #{(sum+taxsum).round(2)}"
   end
+  
 end

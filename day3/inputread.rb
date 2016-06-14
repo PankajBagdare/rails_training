@@ -1,24 +1,22 @@
 #!/usr/bin/env ruby -w
 require './itemclass'
-require './calculate'
 
 class Inputreader
 
   def reader(input)
-    i=0
+    
     name=""
     array_items=[]   
     input.each_line do |line|
-      array_items[i] = line
-      i += 1  
+      array_items << line  
     end
-    k=0
-    array_items.each_index do |j|
-      splited = array_items[j].split
+
+    array_items.each_with_index do |line,i|
+      splited = line.split
       quantity = splited.first.to_i
       price = splited.last.to_f
-      $item_list.each do |item|
-        if array_items[j].include?(item)
+      Item::ITEM_LIST.each do |item|
+        if line.include?(item)
           name = item
           break
         end     
@@ -27,8 +25,8 @@ class Inputreader
       item.setname(name)
       item.setquantity(quantity)
       item.setprice(price)
-      item.setline(array_items[k])
-      k += 1
+      item.setline(array_items[i])
+     
       if splited.include?("imported")
         item.setcategory("imported")
       else

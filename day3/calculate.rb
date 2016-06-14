@@ -21,8 +21,8 @@ class Calculator < Item
   def calculate_tax(item)
     import_tax=0
     sales_tax=0
-    name =item.getname
     final_tax=0
+    name =item.getname
     price = item.getprice.to_f
     category = item.getcategory
     if @include.include? name

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby 
-require './calculate'
+require './out'
 
 #puts "Enter the details of purchased item"
 puts "Enter any one name of file from given below"

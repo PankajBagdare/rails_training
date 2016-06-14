@@ -3,22 +3,22 @@ require './itemclass'
 require './calculate'
 
 $item_list= ["book","music CD","chocolate bar","headache pills","chocolate","perfume"]
-$name_list=[]
-$price_list=[]
-$quantity_list=[]
-$category_list=[]
 
 class Inputreader
 
   def reader(input)
     i=0
     name=""
-    array_items=[]
+    array_items=[]   
     input.each_line do |line|
       array_items[i] = line
       i += 1  
     end
-    
+    itemize(array_items)
+  end
+
+  def itemize(array_items)
+    k=0
     array_items.each_index do |j|
       splited = array_items[j].split
       quantity = splited.first.to_i
@@ -27,18 +27,23 @@ class Inputreader
         if array_items[j].include?(item)
           name = item
           break
-        end
-        
+        end     
       end
-      $name_list.push(name)
-
-      $quantity_list.push(quantity)
-      $price_list.push(price)
+      item = Item.new
+      item.setname(name)
+      item.setquantity(quantity)
+      item.setprice(price)
+      item.setline(array_items[k])
+      k += 1
       if splited.include?("imported")
-        $category_list.push("imported")
+        item.setcategory("imported")
       else
-        $category_list.push("Not imported")
+        item.setcategory("Not imported")
       end
+      Item.new.push_items(item)
     end
+    items=Item.new.return_items
+    return items
   end
+  
 end

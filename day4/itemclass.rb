@@ -3,39 +3,39 @@ require './inputread'
 
 class Item
   def initialised(name,quantity,price,category,taxes)
-    @@category = category
-    @@name = name
-    @@quantity = quantity
-    @@price = price
-    @@tax = taxes
+    @category = category
+    @name = name
+    @quantity = quantity
+    @price = price
+    @tax = taxes
   end
   def getprice
-    return @@price
+    return @price
   end
   def insert_details(i)
-    @@name = $name_list[i]
-    @@quantity = $quantity_list[i]
-    @@price = $price_list[i]
-    @@category = $category_list[i]
-    @@tax = 0.0
+    @name = $name_list[i]
+    @quantity = $quantity_list[i]
+    @price = $price_list[i]
+    @category = $category_list[i]
+    @tax = 0.0
   end
   def settaxes(tax)
-    @@tax = tax
+    @tax = tax
   end
   def gettaxes
-    return @@tax
+    return @tax
   end
   def getname
-    return @@name
+    return @name
   end
   def setcategory(category)
-    @@category = category
+    @category = category
   end
   def getcategory
-    return @@category
+    return @category
   end
   def show_item_details
-    print "#{@@name}, #{@@quantity}, #{@@price}, #{@@category}, #{@@tax}\n"
+    print "#{@name}, #{@quantity}, #{@price}, #{@category}, #{@tax}\n"
   end
 end
 

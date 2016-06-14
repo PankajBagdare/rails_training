@@ -2,10 +2,10 @@
 require './itemclass'
 
 class Calculator < Item
-  
-  @include=["music CD","perfume"]
-  @exclude=["book","chocolate bar","headache pills","chocolate"]
-
+  def initialize
+    @include=["music CD","perfume"]
+    @exclude=["book","chocolate bar","headache pills","chocolate"]
+  end
   def calculate(item)
     category = item.getcategory
     tax = calculate_tax(item)
@@ -22,11 +22,11 @@ class Calculator < Item
     price = item.getprice.to_f
     category = item.getcategory
 
-    if ["music CD","perfume"].include? name
+    if @include.include? name
       sales_tax = (price/10).round(2)
       import_tax = (price/20).round(2)
     end  
-    if ["book","chocolate bar","headache pills","chocolate"].include? name
+    if @exclude.include? name
       import_tax = (price/20).round(2)
     end
     if (category.eql?("imported"))
@@ -38,34 +38,4 @@ class Calculator < Item
     return final_tax
   end
     
-end
-
-class Outputprint < Item
-  @@tax_list=[]
-
-  def out(item,line)
-    tax = item.gettaxes
-    splited = line.split
-    len = splited.length
-    for i in 0...len-2
-      print "#{splited[i]} "
-    end
-    final_price = item.getprice + tax
-    if (final_price!=0.0)
-    print ": #{final_price.round(2)}\n"
-    end
-    @@tax_list.push(tax)
-  end
-  def print_total
-    sum,taxsum = 0,0
-    @@tax_list.each do |tax|
-      taxsum= taxsum +tax
-    end
-    $price_list.each do |rs|
-      sum = sum +rs
-    end
-  
-    puts "Sales tax : #{taxsum.round(2)}"
-    puts "Total : #{(sum+taxsum).round(2)}"
-  end
 end

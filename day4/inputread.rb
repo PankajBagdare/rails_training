@@ -16,10 +16,8 @@ class Inputreader
     array_items=[]
     input.each_line do |line|
       array_items[i] = line
-      i += 1
-      
+      i += 1     
     end
-
     array_items.each_index do |j|
       splited = array_items[j].split
       quantity = splited.first.to_i
@@ -28,11 +26,9 @@ class Inputreader
         if array_items[j].include?(item)
           name = item
           break
-        end
-        
+        end 
       end
       $name_list.push(name)
-
       $quantity_list.push(quantity)
       $price_list.push(price)
       if splited.include?("imported")

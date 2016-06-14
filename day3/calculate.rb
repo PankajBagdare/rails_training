@@ -14,7 +14,6 @@ class Calculator < Item
   end
 
   def calculate_tax(item)
-    
     import_tax=0
     sales_tax=0
     name =item.getname
@@ -34,10 +33,9 @@ class Calculator < Item
     else
       final_tax = sales_tax
     end
- 
     return final_tax
   end
-    
+  
 end
 
 class Outputprint < Item
@@ -56,6 +54,7 @@ class Outputprint < Item
     end
     @@tax_list.push(tax)
   end
+
   def print_total
     sum,taxsum = 0,0
     @@tax_list.each do |tax|
@@ -68,4 +67,5 @@ class Outputprint < Item
     puts "Sales tax : #{taxsum.round(2)}"
     puts "Total : #{(sum+taxsum).round(2)}"
   end
+
 end

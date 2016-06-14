@@ -2,8 +2,12 @@
 require './calculate'
 
 #puts "Enter the details of purchased item"
-#input_taken = gets.chomp
-tempfile = File.new("input1.txt")
+puts "Enter any one file name from these options"
+puts "input1.txt"
+puts "input2.txt"
+puts "input3.txt"
+input_taken = gets.chomp
+tempfile = File.new(input_taken)
 #tempfile.puts(input_taken)
 input = tempfile.read
 

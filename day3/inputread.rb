@@ -16,10 +16,9 @@ class Inputreader
     array_items=[]
     input.each_line do |line|
       array_items[i] = line
-      i += 1
-      
+      i += 1  
     end
-
+    
     array_items.each_index do |j|
       splited = array_items[j].split
       quantity = splited.first.to_i

@@ -22,11 +22,11 @@ class Calculator < Item
     price = item.getprice.to_f
     category = item.getcategory
 
-    if (name.eql?("music CD"||"perfume"))
+    if ["music CD","perfume"].include? name
       sales_tax = (price/10).round(2)
       import_tax = (price/20).round(2)
     end  
-    if (name.eql?("book"||"chocolate bar"||"headache pills"||"chocolate"))
+    if ["book","chocolate bar","headache pills","chocolate"].include? name
       import_tax = (price/20).round(2)
     end
     if (category.eql?("imported"))

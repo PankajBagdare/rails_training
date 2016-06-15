@@ -2,7 +2,11 @@
 require './itemclass'
 
 class Inputreader
-
+  
+  def initialize
+    @items=[]
+  end
+  
   def reader(input)
     
     name=""
@@ -32,10 +36,9 @@ class Inputreader
       else
         item.setcategory("Not imported")
       end
-      Item.new.push_items(item)
+      @items.push(item)
     end
-    items=Item.new.return_items
-    return items
+    return @items
   end
 
 end

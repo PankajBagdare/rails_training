@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby -w
 require './itemclass'
 
-class Calculator < Item
+class Calculator
   
   def initialize
-    @include=["music CD","perfume"]
+    @include=["music CD","perfume","Music",]
     @exclude=["book","chocolate bar","headache pills","chocolate"]
+    @items_update=[]
   end
 
   def calculate(items)
@@ -13,9 +14,9 @@ class Calculator < Item
       category = item.getcategory
       tax = calculate_tax(item)
       item.settaxes(tax)
-      item.push_updated_items(item)
+      @items_update.push(item)
     end
-    return Item.new.return_updated_items
+    return @items_update
   end
 
   def calculate_tax(item)
@@ -39,5 +40,4 @@ class Calculator < Item
     end
     return final_tax
   end
-  
 end

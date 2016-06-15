@@ -5,10 +5,7 @@ class Item
 
   ITEM_LIST = ["book","music CD","chocolate bar","headache pills","chocolate","perfume"]
 
-  @@itemes=[]
-  @@itemes_updated=[]
-
-  def initialised(name,quantity,price,category,taxes,line)
+  def initialise
     @category = category
     @name = name
     @quantity = quantity
@@ -58,22 +55,6 @@ class Item
 
   def getcategory
     return @category
-  end
-
-  def push_items(item)
-    @@itemes.push(item)
-  end
-
-  def push_updated_items(item)
-    @@itemes_updated.push(item)
-  end
-
-  def return_items
-    return @@itemes
-  end
-
-  def return_updated_items
-    return @@itemes_updated
   end
 
 end

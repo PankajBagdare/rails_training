@@ -1,13 +1,11 @@
 #!/usr/bin/env ruby 
 require './calculate.rb'
 
-class Printer < Item
+class Printer 
 
-  @@tax_list=[]
-  @@final_price_list=[]
-  
   def initialize
-    @count=0
+    @tax_list=[]
+    @final_price_list=[]
   end
 
   def final(item)
@@ -15,7 +13,7 @@ class Printer < Item
     line = item.getline
     price = item.getprice
     final_price = price + tax
-    @@tax_list.push(tax)
+    @tax_list.push(tax)
     splited = line.split
     len = splited.length
     for i in 0...len-2
@@ -24,15 +22,15 @@ class Printer < Item
     if (final_price!=0.0)
     print ": #{final_price.round(2)}\n"
     end
-    @@final_price_list.push(price)
+    @final_price_list.push(price)
   end
 
   def print_total
     sum,taxsum = 0,0
-    @@tax_list.each do |tax|
+    @tax_list.each do |tax|
       taxsum = taxsum +tax
     end
-    @@final_price_list.each do |rs|
+    @final_price_list.each do |rs|
       sum = sum +rs
     end
     puts "Sales tax : #{taxsum.round(2)}"
